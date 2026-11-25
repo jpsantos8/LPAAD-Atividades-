@@ -72,6 +72,19 @@ class Catalogo:
         self.musica_atual = None
         return True
 
+    def favoritar(self, musica):
+        if musica not in self.musicas or musica in self.favoritos:
+            return False
+        self.favoritos.append(musica)
+        return True
+
+    def desfavoritar(self, musica):
+        if musica not in self.favoritos:
+            return False
+        self.favoritos.remove(musica)
+        return True
+
+
 
     def listar_musicas(self):
         for musica in self.musicas:
